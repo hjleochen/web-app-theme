@@ -90,7 +90,7 @@ protected
     #MONGOMAPPER
     if Kernel.const_get(@model_name).respond_to?("keys")
       #Kernel.const_get(@model_name).keys.reject{|name,attr| excluded_column_names.include?(name) }.collect{|name,attr| Rails::Generator::GeneratedAttribute.new(name, attr.type.to_s.underscore.to_sym)}
-      Kernel.const_get(@model_name).keys.reject{|name,attr| excluded_column_names.include?(name) }.collect{|name,attr| GeneratedAttribute.new(name, attr.type.to_s.underscore.to_sym)}
+      Kernel.const_get(@model_name).keys.reject{|name,attr| excluded_column_names.include?(name) }.collect{|name,attr| Rails::Generator::GeneratedAttribute.new(name, attr.type.to_s.underscore.to_sym)}
     else
       Kernel.const_get(@model_name).columns.reject{|c| excluded_column_names.include?(c.name) }.collect{|c| Rails::Generator::GeneratedAttribute.new(c.name, c.type)}
     end
